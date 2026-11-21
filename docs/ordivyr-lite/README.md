@@ -113,6 +113,11 @@ ordivyr-lite run "Fix the failing tests" --workdir . \
   --permission workspace --validate auto --json
 ```
 
+`--validate tests` and `auto` run the project's own tests. For Python projects, **`pytest` must be
+installed in the same environment as Lite** (`pip install pytest`); otherwise verification fails
+closed with `validator_dependency_missing` and the result is reported as `unverified`, even if the
+code is correct. Node projects need a real `node` binary on `PATH`.
+
 ### Scripted / Board invocation
 
 ```bash
