@@ -1,0 +1,171 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ORDIVYR Lite job",
+  "type": "object",
+  "required": [
+    "protocol",
+    "version",
+    "task",
+    "model"
+  ],
+  "properties": {
+    "protocol": {
+      "const": "ordivyr-lite/job"
+    },
+    "version": {
+      "const": 1
+    },
+    "job_id": {
+      "type": "string"
+    },
+    "task": {
+      "type": "object",
+      "required": [
+        "prompt"
+      ],
+      "properties": {
+        "prompt": {
+          "type": "string"
+        },
+        "workdir": {
+          "type": "string"
+        },
+        "system": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "model": {
+      "type": "object",
+      "required": [
+        "model"
+      ],
+      "properties": {
+        "provider": {
+          "type": "string"
+        },
+        "model": {
+          "type": "string"
+        },
+        "base_url": {
+          "type": "string"
+        },
+        "protocol": {
+          "enum": [
+            "openai",
+            "anthropic"
+          ]
+        },
+        "api_key_env": {
+          "type": "string"
+        },
+        "api_key_file": {
+          "type": "string"
+        },
+        "context_window": {
+          "type": "integer"
+        },
+        "timeout_s": {
+          "type": "number"
+        },
+        "max_retries": {
+          "type": "integer"
+        }
+      }
+    },
+    "limits": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "number"
+      }
+    },
+    "permissions": {
+      "type": "object",
+      "properties": {
+        "profile": {
+          "enum": [
+            "read-only",
+            "workspace",
+            "trusted",
+            "full"
+          ]
+        },
+        "tools": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "sandbox": {
+          "enum": [
+            "auto",
+            "bwrap",
+            "process",
+            "none"
+          ]
+        },
+        "network": {
+          "type": "boolean"
+        },
+        "allow_shell": {
+          "type": "boolean"
+        },
+        "allow_web": {
+          "type": "boolean"
+        }
+      }
+    },
+    "validation": {
+      "type": "object",
+      "properties": {
+        "mode": {
+          "enum": [
+            "off",
+            "syntax",
+            "auto",
+            "tests",
+            "command"
+          ]
+        },
+        "command": {
+          "type": "string"
+        },
+        "timeout_s": {
+          "type": "number"
+        }
+      }
+    },
+    "session": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "type": "string"
+        },
+        "resume": {
+          "type": "boolean"
+        },
+        "enabled": {
+          "type": "boolean"
+        }
+      }
+    },
+    "spend": {
+      "type": "object",
+      "properties": {
+        "allow_paid": {
+          "type": "boolean"
+        },
+        "max_cost_usd": {
+          "type": "number"
+        }
+      }
+    },
+    "metadata": {
+      "type": "object"
+    }
+  },
+  "additionalProperties": false
+}

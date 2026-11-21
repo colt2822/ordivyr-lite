@@ -1,0 +1,13 @@
+ORDIVYR
+Copyright 2026 ELYREON
+
+Licensed under the Apache License, Version 2.0 (see LICENSE).
+
+Provenance
+  * This code was written by, or for, the copyright holder above. Parts of it were previously part of the holder's proprietary software and are
+    re-licensed here by the holder under Apache-2.0. No third-party source code is vendored or copied into this distribution.
+  * The Apache-2.0 license text is the unmodified canonical text.
+  * Interoperability code speaks public protocols and file formats of other projects (MCP, A2A, n8n webhooks, LangGraph server API,
+    SKILL.md frontmatter, opencode.json / .mcp.json). Those projects are not bundled; their names and trademarks belong to their owners.
+  * Optional bridge: JEV Fleet Command (Apache-2.0) is imported at run time if the user installs it; it is not included.
+  * Standard library only at run time. pytest is a development dependency and is not included.

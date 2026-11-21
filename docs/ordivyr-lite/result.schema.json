@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ORDIVYR Lite result",
+  "type": "object",
+  "required": ["protocol", "version", "job_id", "status", "stop_reason", "usage"],
+  "properties": {
+    "protocol": {"const": "ordivyr-lite/result"},
+    "version": {"const": 1},
+    "lite_version": {"type": "string"},
+    "job_id": {"type": "string"},
+    "created_at": {"type": "string"},
+    "status": {"enum": ["succeeded", "failed", "cancelled", "refused"]},
+    "stop_reason": {"type": "string"},
+    "error": {"type": ["string", "null"]},
+    "text": {"type": "string"},
+    "provider": {"type": "string"},
+    "model": {"type": "string"},
+    "route": {"type": "string"},
+    "cost_usd": {"type": "number"},
+    "usage": {
+      "type": "object",
+      "required": ["input_tokens", "cache_read_tokens", "cache_write_tokens",
+                   "output_tokens", "context_tokens", "billable_tokens",
+                   "total_tokens", "cache_hit_rate", "model_calls", "tool_calls",
+                   "tool_errors", "tool_success_rate"],
+      "additionalProperties": true
+    },
+    "stats": {"type": "object", "additionalProperties": true},
+    "completion": {
+      "type": "object",
+      "required": ["model_said_done", "code_written", "syntax_ok",
+                   "tests_passed", "independent_review"],
+      "additionalProperties": true
+    },
+    "tool_events": {"type": "array", "items": {"type": "object"}},
+    "artifacts": {"type": "array", "items": {"type": "string"}},
+    "session": {"type": "object"},
+    "limits": {"type": "object"},
+    "duration_ms": {"type": "number"},
+    "started_at": {"type": "string"},
+    "ended_at": {"type": "string"}
+  },
+  "additionalProperties": true
+}

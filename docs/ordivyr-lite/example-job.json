@@ -1,0 +1,41 @@
+{
+  "protocol": "ordivyr-lite/job",
+  "version": 1,
+  "job_id": "job-example-1",
+  "task": {
+    "prompt": "Read README.md and summarize the project in three sentences.",
+    "workdir": ".",
+    "system": null
+  },
+  "model": {
+    "provider": "ollama",
+    "model": "qwen2.5-coder:7b",
+    "base_url": "http://127.0.0.1:11434/v1"
+  },
+  "limits": {
+    "max_turns": 20,
+    "max_tool_calls": 60,
+    "max_seconds": 300,
+    "max_cost_usd": 0,
+    "max_tokens": 0
+  },
+  "permissions": {
+    "profile": "read-only",
+    "sandbox": "auto",
+    "network": false
+  },
+  "validation": {
+    "mode": "syntax"
+  },
+  "session": {
+    "resume": false,
+    "enabled": true
+  },
+  "spend": {
+    "allow_paid": false,
+    "max_cost_usd": 0
+  },
+  "metadata": {
+    "source": "example"
+  }
+}
